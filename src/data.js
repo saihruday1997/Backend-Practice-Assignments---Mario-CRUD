@@ -6,6 +6,10 @@ const data = [
     {
         "name": "Wario",
         "weight": 301
+    },
+    {
+        "name": "Mario",
+        "weight": 50
     }
 ]
 
