@@ -30,7 +30,7 @@ app.post("/mario", (req, res) => {
 
     mario.save()
         .then(mario => res.status(201).send(mario))
-        .catch(err => res.status(400).send({message: 'either name or weight is missing'}));
+        .catch(() => res.status(400).send({message: 'either name or weight is missing'}));
 });
 
 app.patch("/mario/:id", (req, res) => {
@@ -40,15 +40,15 @@ app.patch("/mario/:id", (req, res) => {
 
     marioModel.findByIdAndUpdate(id, mario)
         .then(mario => res.send(mario))
-        .catch(err => res.status(400).send({message: error.message}));
+        .catch((err) => res.status(400).send({message: err.message}));
 });
 
 app.delete("/mario/:id", (req, res) => {
     let id = req.params.id;
 
     marioModel.findByIdAndDelete(id)
-        .then(mario => res.status(200).send({message: 'character deleted'}))
-        .catch(err => res.status(400).send({message: err.message}));
+        .then(() => res.status(200).send({message: 'character deleted'}))
+        .catch((err) => res.status(400).send({message: err.message}));
 
 });
 
