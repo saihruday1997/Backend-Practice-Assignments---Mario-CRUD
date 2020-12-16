@@ -25,5 +25,13 @@ app.get("/mario/:id", (req, res) => {
         .catch(err => res.status(400).send({message: err.message}));
 });
 
+app.post("/mario", (req, res) => {
+    let mario = new marioModel(req.body);
+
+    mario.save()
+        .then(mario => res.status(201).send(mario))
+        .catch(err => res.status(400).send({message: 'either name or weight is missing'}));
+});
+
 
 module.exports = app;
