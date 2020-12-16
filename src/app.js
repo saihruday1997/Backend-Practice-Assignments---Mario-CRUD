@@ -13,6 +13,9 @@ app.use(bodyParser.json())
 
 // your code goes here
 
+app.get("/mario", (req, res) => {
+    marioModel.find().then(mario => res.send(mario));
+});
 
 
 module.exports = app;
