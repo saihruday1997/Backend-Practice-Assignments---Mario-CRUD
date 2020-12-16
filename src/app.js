@@ -44,7 +44,7 @@ app.patch("/mario/:id", (req, res) => {
 });
 
 app.delete("/mario/:id", (req, res) => {
-    let id = mongoose.Types.ObjectId(req.params.id);
+    let id = req.params.id;
 
     marioModel.findByIdAndDelete(id)
         .then(mario => res.status(200).send({message: 'character deleted'}))
