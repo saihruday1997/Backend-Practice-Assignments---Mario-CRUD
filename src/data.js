@@ -1,7 +1,11 @@
 const data = [
     {
-        name: " Luigi",
-        weight: 31
+        "name": " Luigi",
+        "weight": 31
+    },
+    {
+        "name": "Wario",
+        "weight": 301
     }
 ]
 
