@@ -33,5 +33,15 @@ app.post("/mario", (req, res) => {
         .catch(err => res.status(400).send({message: 'either name or weight is missing'}));
 });
 
+app.patch("/mario/:id", (req, res) => {
+    let id = req.params.id;
+
+    let mario = req.body;
+
+    marioModel.findByIdAndUpdate(id, mario)
+        .then(mario => res.send(mario))
+        .catch(err => res.status(400).send({message: error.message}));
+});
+
 
 module.exports = app;
