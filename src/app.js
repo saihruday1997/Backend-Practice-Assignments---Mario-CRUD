@@ -17,5 +17,13 @@ app.get("/mario", (req, res) => {
     marioModel.find().then((mario) => res.send(mario));
 });
 
+app.get("/mario/:id", (req, res) => {
+    let id = req.params.id;
+
+    marioModel.findById(id)
+        .then((mario) => res.send(mario))
+        .catch(err => res.status(400).send({message: err.message}));
+});
+
 
 module.exports = app;
