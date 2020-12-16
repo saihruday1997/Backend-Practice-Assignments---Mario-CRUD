@@ -47,7 +47,7 @@ app.delete("/mario/:id", (req, res) => {
     let id = req.params.id;
 
     marioModel.findByIdAndDelete(id)
-        .then(mario => res.status(200).send({message: 'character deleted'}));
+        .then(mario => res.status(200).send({message: 'character deleted'}))
         .catch(err => res.status(400).send({message: err.message}));
 
 });
