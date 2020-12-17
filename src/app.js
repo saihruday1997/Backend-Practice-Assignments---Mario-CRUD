@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const mongoose = require('mongoose');
 const bodyParser = require("body-parser");
 const marioModel = require('./models/marioChar');
 
@@ -39,11 +38,8 @@ app.patch("/mario/:id", (req, res) => {
 
     let mario = req.body;
 
-    marioModel.findByIdAndUpdate(id, mario)
-        .then(mario => {
-            mongoose.set('returnOriginal', false);
-            res.send(mario)
-        })
+    marioModel.findByIdAndUpdate(id, mario, {'returnOriginal': false})
+        .then(mario => res.send(mario))
         .catch((err) => res.status(400).send({message: err.message}));
 });
 
