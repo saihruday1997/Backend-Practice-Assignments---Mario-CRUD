@@ -12,6 +12,6 @@ const marioSchema = new mongoose.Schema({
     }
 })
 
-let marioModel = mongoose.model("marioModel", marioSchema);
+let mariochar = mongoose.model("mariochar", marioSchema);
 
-module.exports = marioModel;
+module.exports = mariochar;
