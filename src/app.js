@@ -39,7 +39,10 @@ app.patch("/mario/:id", (req, res) => {
     let mario = req.body;
 
     marioModel.findByIdAndUpdate(id, mario)
-        .then(mario => res.send(mario))
+        .then(mario => {
+            mongoose.set('returnOriginal', false);
+            res.send(mario)
+        })
         .catch((err) => res.status(400).send({message: err.message}));
 });
 
